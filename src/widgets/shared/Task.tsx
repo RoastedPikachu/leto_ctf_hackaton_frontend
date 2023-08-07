@@ -24,7 +24,7 @@ const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
             //eslint-disable-next-line
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
         ));
-        return (matches ? decodeURIComponent(matches[1]) : undefined).toString();
+        return (matches ? decodeURIComponent(matches[1]) : '').toString();
     }
     const sendFlag = (id:number) => {
         const token = getCookie('token');
