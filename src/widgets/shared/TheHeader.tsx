@@ -1,11 +1,12 @@
 'use client';
-import React from 'react';
+import React, {useState} from 'react';
 
 import Link from 'next/link';
 
 import {useAppSelector, useAppDispatch} from '@/store/storeHooks';
 
 import {userSlice} from '@/store/storeReducers/UserSlice';
+import TheModalHeader from "@/widgets/modals/TheModalHeader";
 
 const TheHeader = () => {
     const dispatch = useAppDispatch();
@@ -14,9 +15,15 @@ const TheHeader = () => {
 
     const isSignIn = useAppSelector((state) => state.user.isSignIn);
 
+    const [isModalHeaderOpen, setIsModalHeaderOpen] = useState(false);
+
     return (
-        <header className='mlarge:absolute flex mlarge:block justify-between items-center pl-[10%] mlarge:py-[20px] mlarge:px-[10px] mlarge:pl-[0%] pr-[10%] mlarge:pr-[0%] w-full h-[80px] mlarge:h-screen mlarge:bg-[#1e1e1e] z-[10]'>
-            <nav className='flex justify-between w-[100%]'>
+        <header className='flex justify-between items-center pl-[10%] pr-[10%] w-full h-[80px] z-[10]'>
+            <img src='/static/hamburgerMenu.svg' alt='Открыть шапку сайта' className='none mlarge:block absolute w-[25px] h-[25px] left-[40px]' onClick={() => setIsModalHeaderOpen(true)}/>
+
+            {isModalHeaderOpen && <TheModalHeader/>}
+
+            <nav className='flex mlarge:display-none justify-between w-[100%]'>
                 <Link href='/profile' className='text-[#ffffff] text-[1.375rem] transition duration-[500ms] ease hover:text-[#62ffe3] outline-none'>Главная</Link>
 
                 <Link href='/iterinary' className='text-[#ffffff] text-[1.375rem] transition duration-[500ms] ease hover:text-[#62ffe3] outline-none'>Мероприятия</Link>
@@ -25,10 +32,10 @@ const TheHeader = () => {
 
                 <Link href='/faq' className='text-[#ffffff] text-[1.375rem] transition duration-[500ms] ease hover:text-[#62ffe3] outline-none'>FAQ</Link>
 
-                <Link href='/' className='text-[#ffffff] text-[1.375rem] transition duration-[500ms] ease hover:text-[#62ffe3] outline-none'>Войти</Link>
-            </nav>
+                {!isSignIn && <Link href='/' className='mlarge:w-[100%] text-[#ffffff] text-[1.375rem] mlarge:text-[1.5rem] transition duration-[500ms] ease hover:text-[#62ffe3] outline-none'>Войти</Link>}
 
-            {isSignIn && <button className='text-[#ffffff] text-[1.375rem] transition duration-[500ms] ease hover:text-[#62ffe3] outline-none' onClick={() => dispatch(changeIsSignIn())}>Выйти</button>}
+                {isSignIn && <button className='text-[#ffffff] text-[1.375rem] transition duration-[500ms] ease hover:text-[#62ffe3] outline-none' onClick={() => dispatch(changeIsSignIn())}>Выйти</button>}
+            </nav>
         </header>
     );
 };

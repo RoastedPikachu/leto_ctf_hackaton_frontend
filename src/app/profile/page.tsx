@@ -51,8 +51,21 @@ const Page = () => {
         price: 1000
     },] as Task[]);
 
-    const getAllTasks = () => {
+    const getCookie = (name:string) => {
+        let matches = document.cookie.match(new RegExp(
+            //eslint-disable-next-line
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return (matches ? decodeURIComponent(matches[1]) : undefined).toString();
+    }
 
+    const getAllTasks = () => {
+        const token = getCookie('token');
+
+        api.get(`http://213.79.99.202:8000/task/${token}`)
+            .then((response) => {
+                console.log(response);
+            })
     }
 
     useEffect(() => {

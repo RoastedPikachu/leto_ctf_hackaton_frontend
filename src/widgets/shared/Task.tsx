@@ -9,16 +9,31 @@ interface Tag {
 }
 
 interface TaskProps {
+    id: number
     title: string,
     description: string,
     tags: Tag[],
     price: number
 }
 
-const Task:React.FC<TaskProps> = ({title, description, tags, price}) => {
+const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
     const {api, initAPI} = axiosMixins();
-    const sendFlag = () => {
 
+    const getCookie = (name:string) => {
+        let matches = document.cookie.match(new RegExp(
+            //eslint-disable-next-line
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return (matches ? decodeURIComponent(matches[1]) : undefined).toString();
+    }
+    const sendFlag = (id:number) => {
+        const token = getCookie('token');
+        api.post(`http://213.79.99.202:8000/user/task/${id}/submit/${token}`, {
+            flag: prompt('Введите флаг')
+        })
+            .then((response) => {
+                console.log(response);
+            })
     }
 
     useEffect(() => {

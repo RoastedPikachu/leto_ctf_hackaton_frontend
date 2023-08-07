@@ -18,11 +18,11 @@ export default function RootLayout({
 }) {
   return (
       <html lang="ru">
-        <body className={inter.className}>
-          <ReduxProvider>
-            {children}
-          </ReduxProvider>
-        </body>
+          <body className={inter.className}>
+            <ReduxProvider>
+                {children}
+            </ReduxProvider>
+          </body>
       </html>
   )
 }

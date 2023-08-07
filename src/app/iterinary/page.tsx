@@ -9,10 +9,10 @@ interface IterinaryItem {
     id: number,
     title: string,
     description: string,
-    startTime: string,
-    endTime: string,
-    isActive: boolean
-    timeType: number
+    time_start: string,
+    time_end: string,
+    is_active: boolean
+    time_type: number
 }
 
 const Page = () => {
@@ -84,10 +84,22 @@ const Page = () => {
         timeType: 0
     }] as IterinaryItem[]);
 
+    const getCookie = (name:string) => {
+        let matches = document.cookie.match(new RegExp(
+            //eslint-disable-next-line
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return (matches ? decodeURIComponent(matches[1]) : undefined).toString();
+    }
+
     const getIterinary = () => {
-        api.get('')
+        const token = getCookie('token');
+        api.get(`http://213.79.99.202:8000/timetable/${token}?day=0`)
             .then((response) => {
-                console.log(response);
+                setBreakfastIterinary(Object.values(response.data).filter(item => item.time_type == 0));
+                setLunchIterinary(Object.values(response.data).filter(item => item.time_type == 1));
+                setDinnerIterinary(Object.values(response.data).filter(item => item.time_type == 2));
+                setNightIterinary(Object.values(response.data).filter(item => item.time_type == 3));
             });
     }
 
@@ -95,7 +107,7 @@ const Page = () => {
         initAPI(false);
 
         getIterinary();
-    });
+    }, []);
 
     return (
         <>
@@ -106,19 +118,19 @@ const Page = () => {
 
                 <section className='grid grid-rows-4 items-between mt-[50px] h-[1200px]'>
                     <div className='justify-self-start py-[20px] pl-[20px] w-[80vw] h-auto border-l-2 border-b-2 border-[#9a9a9a]'>
-                        {breakfastIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.isActive ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`}><p className='text-[1.875rem] text-right' key={event.id}>{event.title} {event.startTime} - {event.endTime}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
+                        {breakfastIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] text-right'>{event.title} {event.time_start} - {event.time_end}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
 
                     <div className='justify-self-end mt-[-2px] py-[20px] pr-[20px] w-[80vw] h-auto border-y-2 border-r-2 border-[#9a9a9a]'>
-                        {lunchIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] w-[100%] h-[60px] text-right ${event.isActive ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`}><p className='text-[1.875rem] text-right' key={event.id}>{event.startTime} - {event.endTime}  {event.title}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
+                        {lunchIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] text-right'>{event.time_start} - {event.time_end}  {event.title}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
 
                     <div className='justify-self-start mt-[-2px] py-[20px] pl-[20px] w-[80vw] h-auto border-l-2 border-y-2 border-[#9a9a9a]'>
-                        {dinnerIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.isActive ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`}><p className='text-[1.875rem] text-right' key={event.id}>{event.title} {event.startTime} - {event.endTime}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
+                        {dinnerIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] text-right'>{event.title} {event.time_start} - {event.time_end}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
 
                     <div className='justify-self-end mt-[-2px] py-[20px] pr-[20px] w-[80vw] h-auto border-t-2 border-r-2 border-[#9a9a9a]'>
-                        {nightIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] w-[90%] h-[60px] text-right ${event.isActive ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`}><p className='text-[1.875rem] text-right' key={event.id}>{event.startTime} - {event.endTime}  {event.title}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
+                        {nightIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] w-[90%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] text-right'>{event.time_start} - {event.time_end}  {event.title}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
                 </section>
             </main>
