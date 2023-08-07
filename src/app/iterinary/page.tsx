@@ -18,71 +18,10 @@ interface IterinaryItem {
 const Page = () => {
     const {api, initAPI} = axiosMixins();
 
-    const [breakfastIterinary, setBreakfastIterinary] = useState([{
-        id: 1,
-        title: 'Бог грома',
-        description: 'Выступает самый гейский гей: Борис Карабут',
-        startTime: '19:00',
-        endTime: '20:00',
-        isActive: false,
-        timeType: 0
-    }, {
-        id: 2,
-        title: 'Бог грома',
-        description: 'Выступает самый гейский гей: Борис Карабут',
-        startTime: '19:00',
-        endTime: '20:00',
-        isActive: true,
-        timeType: 0
-    }] as IterinaryItem[]);
-    const [lunchIterinary, setLunchIterinary] = useState([{id: 1,
-        title: 'Бог грома',
-        description: 'Выступает самый гейский гей: Борис Карабут',
-        startTime: '19:00',
-        endTime: '20:00',
-        isActive: false,
-        timeType: 0
-    }, {
-        id: 2,
-        title: 'Бог грома',
-        description: 'Выступает самый гейский гей: Борис Карабут',
-        startTime: '19:00',
-        endTime: '20:00',
-        isActive: false,
-        timeType: 0
-    }] as IterinaryItem[]);
-    const [dinnerIterinary, setDinnerIterinary] = useState([{id: 1,
-        title: 'Бог грома',
-        description: 'Выступай самый гейский гей: Борис Карабут',
-        startTime: '19:00',
-        endTime: '20:00',
-        isActive: false,
-        timeType: 0
-    }, {
-        id: 2,
-        title: 'Бог грома',
-        description: 'Выступай самый гейский гей: Борис Карабут',
-        startTime: '19:00',
-        endTime: '20:00',
-        isActive: false,
-        timeType: 0
-    }] as IterinaryItem[]);
-    const [nightIterinary, setNightIterinary] = useState([{id: 1,
-        title: 'Бог грома',
-        description: 'Выступай самый гейский гей: Борис Карабут',
-        startTime: '19:00',
-        endTime: '20:00',
-        isActive: false,
-        timeType: 0
-    }, {
-        id: 2,
-        title: 'Бог грома',
-        description: 'Выступай самый гейский гей: Борис Карабут',
-        startTime: '19:00',
-        endTime: '20:00',
-        isActive: false,
-        timeType: 0
-    }] as IterinaryItem[]);
+    const [breakfastIterinary, setBreakfastIterinary] = useState([] as IterinaryItem[]);
+    const [lunchIterinary, setLunchIterinary] = useState([] as IterinaryItem[]);
+    const [dinnerIterinary, setDinnerIterinary] = useState([] as IterinaryItem[]);
+    const [nightIterinary, setNightIterinary] = useState([] as IterinaryItem[]);
 
     const getCookie = (name:string) => {
         let matches = document.cookie.match(new RegExp(
