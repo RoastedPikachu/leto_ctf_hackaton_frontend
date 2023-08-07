@@ -13,15 +13,16 @@ export default function Home() {
   const [fullName, setFullName] = useState('');
   const [token, setToken] = useState('');
 
-  const fullNameRegExp = /\d/g;
+  const fullNameRegExp = /^[A-Za-z]{1,20} [A-Za-z]{1,20}$/g;
 
   const sendCredentials = () => {
     if(fullNameRegExp.test(fullName)) {
-      api.post('', {token: token})
+      api.post('http://10.115.16.90:8000/login', {token: token})
           .then(response => {
-            if(response) {
-              router.push('/profile');
-            }
+            console.log(response);
+            // if(response) {
+            //   router.push('/profile');
+            // }
           })
     }
   }
