@@ -42,7 +42,7 @@ const TheProfileInfo = () => {
     return (
         <div className='w-[25%] h-[400px] border-2 border-[#ffffff66] rounded-xl'>
             <div id='TopUserInfo' className='w-[100%] h-[32.5%] border-b-2 border-[#ffffff66]'>
-                <Avatar className='mt-[30px] ml-[calc(50%-37.5px)]' sx={{ width: 75, height: 75}}>{fullName.split(' ').map((item) => item.slice(0, 1)).join(' ')}</Avatar>
+                <Avatar className='mt-[30px] ml-[calc(50%-37.5px)] border-2 border-[#62ffe3] shadow-[0_0_38px_rgba(46,236,197,0.1)]' sx={{ width: 75, height: 75}}>{fullName.split(' ').map((item) => item.slice(0, 1)).join(' ')}</Avatar>
 
                 <h2 className='mt-[10px] w-full text-[#ffffff] text-[1.125rem] text-center'>{fullName || 'Уточка кря-кря'}</h2>
             </div>

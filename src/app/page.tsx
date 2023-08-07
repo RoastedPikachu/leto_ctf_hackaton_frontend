@@ -17,12 +17,12 @@ export default function Home() {
 
   const sendCredentials = () => {
     if(fullNameRegExp.test(fullName)) {
-      api.post('http://10.115.16.90:8000/login', {token: token})
+      api.post('http://213.79.99.202:8000/auth/login', {username: fullName, password: token})
           .then(response => {
             console.log(response);
-            // if(response) {
-            //   router.push('/profile');
-            // }
+            if(response) {
+              router.push('/profile');
+            }
           })
     }
   }
@@ -33,13 +33,15 @@ export default function Home() {
 
   return (
     <main className='relative w-full h-screen'>
-      <div className='absolute mt-[15%] ml-[32.5%] pt-[25px] pl-[10px] pr-[10px] w-[30%] h-[50%] border-2 border-[#ffffff66] bg-[#fffff66] rounded-xl z-10'>
+      <div className='absolute mt-[15%] mlarge:mt-[30%] ml-[32.5%] mlarge:ml-[7.5%] pt-[25px] pl-[10px] pr-[10px] w-[30%] mlarge:w-[85%] h-[55%] border-2 border-[#ffffff66] bg-[#fffff66] rounded-xl z-10'>
+        <img src='/static/letoctfLogo.svg' alt="Лого LetoCTF" className='ml-[10%] w-[80%]'/>
+
         <input
             type='text'
             placeholder='Введите имя и фамилию'
             value={fullName}
             onChange={(event) => setFullName(event.target.value)}
-            className='mt-[40px] ml-[10%] pl-[15px] w-[80%] h-[55px] outline-none rounded-2xl'
+            className='mt-[30px] ml-[10%] pl-[15px] w-[80%] h-[55px] outline-none rounded-2xl'
         />
 
         <input

@@ -7,11 +7,16 @@ import TheHeader from '@/widgets/shared/TheHeader';
 import TheProfileInfo from "@/widgets/TheProfileInfo";
 import Task from '@/widgets/shared/Task';
 
+interface Tag {
+    id: number,
+    title: string
+}
+
 interface Task {
     id: number,
     title: string,
     description: string,
-    tags: string[],
+    tags: Tag[],
     price: number
 }
 
@@ -21,28 +26,28 @@ const Page = () => {
         id: 1,
         title: 'Мой таск',
         description: 'Lorem ipsum dolor sit amet, consectetur adipis',
-        tags: ['hello', 'personal'],
+        tags: [{id: 1, title: 'hello'}, {id: 2, title: 'hello'}],
         price: 1000
     },
     {
         id: 2,
         title: 'Мой таск',
         description: 'Lorem ipsum dolor sit amet, consectetur adipis',
-        tags: ['hello', 'personal'],
+        tags: [{id: 1, title: 'hello'}, {id: 2, title: 'hello'}],
         price: 1000
     },
     {
         id: 3,
         title: 'Мой таск',
         description: 'Lorem ipsum dolor sit amet, consectetur adipis',
-        tags: ['hello', 'personal'],
+        tags: [{id: 1, title: 'hello'}, {id: 2, title: 'hello'}],
         price: 1000
     },
     {
         id: 4,
         title: 'Мой таск',
         description: 'Lorem ipsum dolor sit amet, consectetur adipis',
-        tags: ['hello', 'personal'],
+        tags: [{id: 1, title: 'hello'}, {id: 2, title: 'hello'}],
         price: 1000
     },] as Task[]);
 
