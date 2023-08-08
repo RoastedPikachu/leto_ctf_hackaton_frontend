@@ -78,10 +78,10 @@ const Page = () => {
         <>
             <TheHeader/>
 
-            <main className='flex justify-between mt-[30px] ml-[10%] w-[80%] h-[90%]'>
+            <main className='flex mlarge:block justify-between mt-[30px] ml-[10%] w-[80%] h-[90%]'>
                 <TheProfileInfo/>
 
-                <section className='relative flex flex-wrap justify-between items-between w-[58vw] h-auto min-h-[550px]'>
+                <section className='relative flex flex-wrap justify-between items-between w-[58vw] mlarge:w-[80vw] h-auto min-h-[550px]'>
                     {tasks.map((task) => (
                         <Task
                             id={task.id}

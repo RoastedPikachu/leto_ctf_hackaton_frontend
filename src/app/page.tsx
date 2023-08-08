@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <main className='relative w-full h-screen'>
       <div className='absolute mt-[15%] mlarge:mt-[30%] ml-[32.5%] mlarge:ml-[7.5%] pt-[25px] pl-[10px] pr-[10px] w-[30%] mlarge:w-[85%] h-[60%] border-2 border-[#ffffff66] bg-[#fffff66] rounded-xl z-10'>
-        <img src='/static/letoctfLogo.svg' alt="Лого LetoCTF" className='ml-[10%] w-[80%]'/>
+        <img src='/static/letoctfLogo.svg' alt="Лого LetoCTF" className='mt-[20px] ml-[10%] w-[80%]'/>
 
         <input
             type='text'

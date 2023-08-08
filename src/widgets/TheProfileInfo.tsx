@@ -57,14 +57,14 @@ const TheProfileInfo = () => {
     }, []);
 
     return (
-        <div className='pb-[20px] w-[25%] lmobile:w-[100%] h-[420px] border-2 border-[#ffffff66] rounded-xl'>
+        <div className='pb-[20px] w-[25%] mlarge:w-[100%] h-[420px] border-2 border-[#ffffff66] rounded-xl'>
             <div id='TopUserInfo' className='w-[100%] h-[32.5%] border-b-2 border-[#ffffff66]'>
                 <Avatar className='mt-[30px] ml-[calc(50%-37.5px)] border-2 border-[#62ffe3] shadow-[0_0_38px_rgba(46,236,197,0.1)]' sx={{ width: 75, height: 75}}>{fullName.split(' ').map((item) => item.slice(0, 1)).join(' ')}</Avatar>
 
                 <h2 className='mt-[10px] w-full text-[#ffffff] text-[1.125rem] text-center'>{fullName || 'Уточка кря-кря'}</h2>
             </div>
 
-            <div id='AdditionalInfo' className='mt-[10px] ml-[10%] w-[80%] h-[67.5%]'>
+            <div id='AdditionalInfo' className='mt-[10px] mlarge:mt-[30px] ml-[10%] w-[80%] h-[67.5%]'>
                 <p className='text-[#ffffff] text-[1.125rem]'>Личные баллы: { user.personalScore }</p>
 
                 <p className='mt-[10px] text-[#ffffff] text-[1.125rem]'>Баллы команды: { user.teamScore }</p>

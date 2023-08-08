@@ -43,7 +43,7 @@ const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
     }, []);
 
     return (
-        <div className='relative w-[28.5vw] h-[250px] border-2 border-[#ffffff66] rounded-xl'>
+        <div className='relative mlarge:mt-[30px] w-[28.5vw] mlarge:w-[100vw] h-[250px] border-2 border-[#ffffff66] rounded-xl'>
             <div className='flex justify-between items-center mt-[15px] ml-[10%] w-[80%] h-[50px]'>
                 <h2 className='text-[#ffffff] text-[1.125rem]'>{title}</h2>
 
