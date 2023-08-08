@@ -2,10 +2,17 @@
 /* eslint-disable */
 import React, {useState} from 'react';
 import Link from "next/link";
-import {useAppSelector} from "@/store/storeHooks";
+
+import {userSlice} from '@/store/storeReducers/UserSlice';
+
+import {useAppDispatch, useAppSelector} from "@/store/storeHooks";
 
 const TheModalHeader = () => {
+    const dispatch = useAppDispatch();
+
     const isSignIn = useAppSelector((state) => state.user.isSignIn);
+
+    const {changeIsSignIn} = userSlice.actions;
 
     const [isModalHeaderOpen, setIsModalHeaderOpen] = useState(false);
 
