@@ -36,9 +36,13 @@ const Page = () => {
         const token = getCookie('token');
         api.get(`http://213.79.99.202:8000/timetable/${token}?day=0`)
             .then((response:any) => {
+                /* eslint-disable */
                 setBreakfastIterinary(Object.values(response.data).filter(item => item.time_type == 0));
+                /* eslint-disable */
                 setLunchIterinary(Object.values(response.data).filter(item => item.time_type == 1));
+                /* eslint-disable */
                 setDinnerIterinary(Object.values(response.data).filter(item => item.time_type == 2));
+                /* eslint-disable */
                 setNightIterinary(Object.values(response.data).filter(item => item.time_type == 3));
             });
     }
