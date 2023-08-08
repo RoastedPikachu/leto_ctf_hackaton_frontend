@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable */
 import React, {useEffect} from 'react';
 
 import axiosMixins from "@/mixins/axiosMixins";

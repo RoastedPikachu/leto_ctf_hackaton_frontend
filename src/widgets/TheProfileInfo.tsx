@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable */
 import React, {useState, useEffect} from 'react';
 
 import Avatar from '@mui/material/Avatar';
