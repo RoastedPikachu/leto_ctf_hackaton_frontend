@@ -63,7 +63,7 @@ const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
                 <p className='mt-[10px] text-[#ffffff] text-[1rem]'>Стоимость таска: {price}</p>
 
                 <button
-                    className="mt-[20px] w-[40%] h-[40px] border-2 border-[#62ffe3]
+                    className="mt-[20px] mmedium:px-[7.5px] w-[40%] h-[40px] border-2 border-[#62ffe3]
                     text-[#62ffe3] bg-[#2eecc51a] shadow-[0_0_38px_rgba(46,236,197,0.1)] rounded-[10px]"
                     onClick={() => sendFlag()}
                 >

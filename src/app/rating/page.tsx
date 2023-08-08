@@ -69,25 +69,25 @@ const Page = () => {
         <>
             <TheHeader/>
 
-            <main className='flex justify-between mt-[30px] ml-[10%] w-[80%] pb-[50px]'>
-                <div id='PersonalRating' className='relative w-[39vw] pb-[30px] min-h-[850px] h-auto border-2 border-[#ffffff66] rounded-xl'>
-                    <h2 className='mt-[50px] pb-[30px] w-[100%] text-[1.875rem] text-[#62ffe3] text-center'>Личный рейтинг</h2>
+            <main className='flex mlarge:block justify-between mt-[30px] ml-[10%] w-[80%] pb-[50px]'>
+                <div id='PersonalRating' className='relative w-[39vw] mlarge:w-[100%] pb-[30px] min-h-[850px] mmedium:min-h-[550px] h-auto border-2 border-[#ffffff66] rounded-xl'>
+                    <h2 className='mt-[50px] mmedium:mt-[30px] pb-[30px] w-[100%] text-[1.875rem] mmedium:text-[1.625rem] text-[#62ffe3] text-center'>Личный рейтинг</h2>
 
                     {personalRatingArr.map((item:RatingItem) => (
-                        <span className='flex justify-center items-center mt-[20px] ml-[10%] w-[80%] text-[1.5rem] text-[#ffffff] text-center' key={item.id}><p className='px-[5px] w-[40px] h-[40px] bg-[#2eecc51a] border-2 border-[#62ffe3] shadow-[0_0_38px_rgba(46,236,197,0.1)] text-[#62ffe3] rounded-[30px]'>{ item.position }</p> <p className='ml-[10px]'>{ item.username } - { item.points } очков</p></span>
+                        <span className='flex justify-center items-center mt-[20px] ml-[10%] w-[80%] text-[1.5rem] mlarge:text-[1.375rem] mmedium:text-[1.25rem] text-[#ffffff] text-center' key={item.id}><p className='px-[5px] w-[40px] h-[40px] bg-[#2eecc51a] border-2 border-[#62ffe3] shadow-[0_0_38px_rgba(46,236,197,0.1)] text-[#62ffe3] rounded-[30px]'>{ item.position }</p> <p className='ml-[10px]'>{ item.username } - { item.points } очков</p></span>
                     ))}
 
-                    <button className='absolute ml-[32.5%] bottom-[20px] h-[50px] text-[#62ffe3] text-[1.5rem] text-center rounded-[30px]' onClick={() => showMore('solo')}>Показать больше</button>
+                    <button className='absolute ml-[32.5%] mlarge:ml-[20%] mmedium:ml-[15%] bottom-[20px] h-[50px] text-[#62ffe3] text-[1.5rem] mmedium:text-[1.375rem] text-center rounded-[30px]' onClick={() => showMore('solo')}>Показать больше</button>
                 </div>
 
-                <div id='TeamRating' className='relative w-[39vw] pb-[30px] min-h-[850px] h-auto border-2 border-[#ffffff66] rounded-xl'>
-                    <h2 className='mt-[50px] pb-[30px] w-[100%] text-[1.875rem] text-[#62ffe3] text-center'>Командный рейтинг</h2>
+                <div id='TeamRating' className='relative mlarge:mt-[40px] w-[39vw] mlarge:w-[100%] pb-[30px] min-h-[850px] mmedium:min-h-[550px] h-auto border-2 border-[#ffffff66] rounded-xl'>
+                    <h2 className='mt-[50px] mmedium:mt-[30px] pb-[30px] w-[100%] text-[1.875rem] mmedium:text-[1.625rem] text-[#62ffe3] text-center'>Командный рейтинг</h2>
 
                     {teamRatingArr.map((item:any) => (
-                        <span className='flex justify-center items-center mt-[20px] ml-[10%] w-[80%] text-[1.5rem] text-[#ffffff] text-center' key={item.id}><p className='px-[5px] w-[40px] h-[40px] bg-[#2eecc51a] border-2 border-[#62ffe3] shadow-[0_0_38px_rgba(46,236,197,0.1)] text-[#62ffe3] rounded-[30px]'>{ item.position }</p> <p className='ml-[10px]'>{ item.fullName } - { item.score } очков</p></span>
+                        <span className='flex justify-center items-center mt-[20px] ml-[10%] w-[80%] text-[1.5rem] mlarge:text-[1.375rem] mmedium:text-[1.25rem] text-[#ffffff] text-center' key={item.id}><p className='px-[5px] w-[40px] h-[40px] bg-[#2eecc51a] border-2 border-[#62ffe3] shadow-[0_0_38px_rgba(46,236,197,0.1)] text-[#62ffe3] rounded-[30px]'>{ item.position }</p> <p className='ml-[10px]'>{ item.fullName } - { item.score } очков</p></span>
                     ))}
 
-                    <button className='absolute ml-[32.5%] bottom-[20px] h-[50px] text-[#62ffe3] text-[1.5rem] text-center rounded-[30px]' onClick={() => showMore('team')}>Показать больше</button>
+                    <button className='absolute ml-[32.5%] mlarge:ml-[20%] mmedium:ml-[15%] bottom-[20px] h-[50px] text-[#62ffe3] text-[1.5rem] mmedium:text-[1.375rem] text-center rounded-[30px]' onClick={() => showMore('team')}>Показать больше</button>
                 </div>
             </main>
         </>
