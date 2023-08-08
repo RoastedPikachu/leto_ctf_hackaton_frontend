@@ -10,6 +10,7 @@ interface Tag {
 }
 
 interface TaskProps {
+    id: number,
     title: string,
     description: string,
     tags: Tag[],
@@ -26,7 +27,7 @@ const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
         ));
         return (matches ? decodeURIComponent(matches[1]) : '.').toString();
     }
-    const sendFlag = (id:number) => {
+    const sendFlag = () => {
         console.log('');
         const token = getCookie('token');
         api.post(`http://213.79.99.202:8000/user/task/${id}/submit/${token}`, {
