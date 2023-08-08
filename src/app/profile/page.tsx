@@ -84,6 +84,7 @@ const Page = () => {
                 <section className='relative flex flex-wrap justify-between items-between w-[58vw] h-auto min-h-[550px]'>
                     {tasks.map((task) => (
                         <Task
+                            id={task.id}
                             key={task.id}
                             title={task.title}
                             description={task.description}
