@@ -36,10 +36,10 @@ const Page = () => {
         const token = getCookie('token');
         api.get(`http://213.79.99.202:8000/timetable/${token}?day=0`)
             .then((response:any) => {
-                setBreakfastIterinary(Object.values(response.data).filter((item:IterinaryItem) => item.time_type == 0));
-                setLunchIterinary(Object.values(response.data).filter((item:IterinaryItem) => item.time_type == 1));
-                setDinnerIterinary(Object.values(response.data).filter((item:IterinaryItem) => item.time_type == 2));
-                setNightIterinary(Object.values(response.data).filter((item:IterinaryItem) => item.time_type == 3));
+                setBreakfastIterinary(Object.values(response.data).filter(item => item.time_type == 0) as IterinaryItem[]);
+                setLunchIterinary(Object.values(response.data).filter(item => item.time_type == 1) as IterinaryItem[]);
+                setDinnerIterinary(Object.values(response.data).filter(item => item.time_type == 2) as IterinaryItem[]);
+                setNightIterinary(Object.values(response.data).filter(item => item.time_type == 3) as IterinaryItem[]);
             });
     }
 
