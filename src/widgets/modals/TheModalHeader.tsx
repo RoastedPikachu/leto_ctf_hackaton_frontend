@@ -17,7 +17,7 @@ const TheModalHeader = () => {
     const [isModalHeaderOpen, setIsModalHeaderOpen] = useState(false);
 
     return (
-        <div className='absolute mt-[670px] ml-[-50px] py-[10px] px-[10px] w-[115vw] h-[100%] bg-[#1e1e1e] z-[10]'>
+        <div className='absolute mt-[670px] ml-[-50px] py-[10px] px-[10px] w-[100vw] h-[100%] bg-[#1e1e1e] z-[10]'>
             <img src='/static/hamburgerMenu.svg' alt='Открыть шапку сайта' className='none mlarge:block absolute w-[25px] h-[25px] ml-[10%]'/>
 
             <img src='/static/xMarkIcon.svg' alt='Закрыть шапку сайта' className='none mlarge:block absolute w-[20px] h-[20px] right-[10%]' onClick={() => setIsModalHeaderOpen(false)}/>
