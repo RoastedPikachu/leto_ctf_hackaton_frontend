@@ -19,6 +19,7 @@ interface IterinaryItem {
 const Page = () => {
     const {api, initAPI} = axiosMixins();
 
+    const [day, setDay] = useState(0);
     const [breakfastIterinary, setBreakfastIterinary] = useState([] as IterinaryItem[]);
     const [lunchIterinary, setLunchIterinary] = useState([] as IterinaryItem[]);
     const [dinnerIterinary, setDinnerIterinary] = useState([] as IterinaryItem[]);
@@ -34,7 +35,7 @@ const Page = () => {
 
     const getIterinary = () => {
         const token = getCookie('token');
-        api.get(`http://213.79.99.202:8000/timetable/${token}?day=0`)
+        api.get(`http://213.79.99.202:8000/timetable/${token}?day=${day}`)
             .then((response:any) => {
                 setBreakfastIterinary(Object.values(response.data).filter((item:any) => item.time_type == 0) as IterinaryItem[]);
                 setLunchIterinary(Object.values(response.data).filter((item:any) => item.time_type == 1) as IterinaryItem[]);
@@ -59,6 +60,14 @@ const Page = () => {
                 <section className='grid grid-rows-4 items-between mt-[50px] h-[1000px]'>
                     <div className='justify-self-start py-[20px] pl-[20px] w-[80vw] h-auto border-l-2 border-b-2 border-[#9a9a9a]'>
                         {breakfastIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] mlarge:text-[1.25rem] text-right'>{event.title} {event.time_start} - {event.time_end}</p><p className='ml-[20px] text-[1.75rem] mlarge:text-[1.125rem] text-right'>{`(${event.description})`}</p></span>))}
+                    </div>
+
+                    <div className='absolute flex justify-between justify-self-end py-[20px] w-[15vw]'>
+                        <button className='px-[10px] h-[50px] border-2 border-[#62ffe3]
+                                text-[#62ffe3] bg-[#2eecc51a] shadow-[0_0_38px_rgba(46,236,197,0.1)] rounded-[10px] outline-none' onClick={() => {setDay(0); getIterinary()}}>День 0</button>
+
+                        <button className='px-[10px] h-[50px] border-2 border-[#62ffe3]
+                                text-[#62ffe3] bg-[#2eecc51a] shadow-[0_0_38px_rgba(46,236,197,0.1)] rounded-[10px] outline-none' onClick={() => {setDay(1); getIterinary()}}>День 1</button>
                     </div>
 
                     <div className='justify-self-end mt-[-2px] py-[20px] pr-[20px] w-[80vw] h-auto border-y-2 border-r-2 border-[#9a9a9a]'>

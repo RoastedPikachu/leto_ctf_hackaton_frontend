@@ -18,6 +18,9 @@ export default function RootLayout({
 }) {
   return (
       <html lang="ru">
+          <head>
+              <link rel="manifest" href="@/manifest.webmanifest"/>
+          </head>
           <body className={inter.className}>
             <ReduxProvider>
                 {children}

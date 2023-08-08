@@ -23,8 +23,8 @@ const TheHeader = () => {
     }
 
     return (
-        <header className='flex justify-between items-center pl-[10%] pr-[10%] w-[80%] mlarge:w-[80%] h-[80px] z-[10]'>
-            <img src='/static/hamburgerMenu.svg' alt='Открыть шапку сайта' className='none mlarge:block absolute w-[25px] h-[25px]' onClick={() => setIsModalHeaderOpen(true)}/>
+        <header className='flex justify-between items-center pl-[10%] w-[90%] mlarge:w-[80%] h-[80px] z-[10]'>
+            <img src='/static/hamburgerMenu.svg' alt='Открыть шапку сайта' className='hidden mlarge:block absolute w-[25px] h-[25px]' onClick={() => setIsModalHeaderOpen(true)}/>
 
             {isModalHeaderOpen && <TheModalHeader closeModalHeader={closeModalHeader}/>}
 

@@ -74,6 +74,9 @@ const Page = () => {
     }
 
     useEffect(() => {
+        if(filteredArr) {
+            setTasks(filteredArr);
+        }
         initAPI(false);
 
         getAllTasks();
