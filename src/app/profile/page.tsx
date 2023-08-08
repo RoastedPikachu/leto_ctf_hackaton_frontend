@@ -56,7 +56,7 @@ const Page = () => {
             //eslint-disable-next-line
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
         ));
-        return (matches ? decodeURIComponent(matches[1]) : undefined).toString();
+        return (matches ? decodeURIComponent(matches[1]) : '').toString();
     }
 
     const getAllTasks = () => {
