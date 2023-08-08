@@ -31,7 +31,7 @@ const Page = () => {
             //eslint-disable-next-line
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
         ));
-        return (matches ? decodeURIComponent(matches[1]) : '').toString();
+        return (matches ? decodeURIComponent(matches[1]) : '.').toString();
     }
 
     const getPersonalRatingArr = () => {

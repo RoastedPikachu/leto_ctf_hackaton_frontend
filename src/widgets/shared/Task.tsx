@@ -24,9 +24,10 @@ const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
             //eslint-disable-next-line
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
         ));
-        return (matches ? decodeURIComponent(matches[1]) : '').toString();
+        return (matches ? decodeURIComponent(matches[1]) : '.').toString();
     }
     const sendFlag = (id:number) => {
+        console.log('');
         const token = getCookie('token');
         api.post(`http://213.79.99.202:8000/user/task/${id}/submit/${token}`, {
             flag: prompt('Введите флаг')
