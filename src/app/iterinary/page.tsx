@@ -54,23 +54,23 @@ const Page = () => {
             <TheHeader/>
 
             <main className='mt-[30px] ml-[10%] pb-[40px] w-[80%]'>
-                <h1 className='w-[46%] border-b-2 border-[#62ffe3] text-[#ffffff] text-[2rem]'>Расписание активностей на день</h1>
+                <h1 className='w-[46%] mlarge:w-[60%] border-b-2 border-[#62ffe3] text-[#ffffff] text-[2rem] mlarge:text-[1.5rem]'>Расписание активностей на день</h1>
 
-                <section className='grid grid-rows-4 items-between mt-[50px] h-[1200px]'>
+                <section className='grid grid-rows-4 items-between mt-[50px] h-[1000px]'>
                     <div className='justify-self-start py-[20px] pl-[20px] w-[80vw] h-auto border-l-2 border-b-2 border-[#9a9a9a]'>
-                        {breakfastIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] text-right'>{event.title} {event.time_start} - {event.time_end}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
+                        {breakfastIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] mlarge:text-[1.25rem] text-right'>{event.title} {event.time_start} - {event.time_end}</p><p className='ml-[20px] text-[1.75rem] mlarge:text-[1.125rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
 
                     <div className='justify-self-end mt-[-2px] py-[20px] pr-[20px] w-[80vw] h-auto border-y-2 border-r-2 border-[#9a9a9a]'>
-                        {lunchIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] text-right'>{event.time_start} - {event.time_end}  {event.title}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
+                        {lunchIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] mlarge:ml-[12.5%] mmedium:ml-[5%] w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] mlarge:text-[1.25rem] text-right'>{event.time_start} - {event.time_end}  {event.title}</p><p className='ml-[20px] text-[1.75rem] mlarge:text-[1.125rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
 
                     <div className='justify-self-start mt-[-2px] py-[20px] pl-[20px] w-[80vw] h-auto border-l-2 border-y-2 border-[#9a9a9a]'>
-                        {dinnerIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] text-right'>{event.title} {event.time_start} - {event.time_end}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
+                        {dinnerIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] mlarge:text-[1.25rem] text-right'>{event.title} {event.time_start} - {event.time_end}</p><p className='ml-[20px] text-[1.75rem] mlarge:text-[1.125rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
 
                     <div className='justify-self-end mt-[-2px] py-[20px] pr-[20px] w-[80vw] h-auto border-t-2 border-r-2 border-[#9a9a9a]'>
-                        {nightIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] w-[90%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] text-right'>{event.time_start} - {event.time_end}  {event.title}</p><p className='ml-[20px] text-[1.75rem] text-right'>{`(${event.description})`}</p></span>))}
+                        {nightIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] mlarge:ml-[12.5%] mmedium:ml-[5%] w-[90%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] mlarge:text-[1.25rem] text-right'>{event.time_start} - {event.time_end}  {event.title}</p><p className='ml-[20px] text-[1.75rem] mlarge:text-[1.125rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
                 </section>
             </main>
