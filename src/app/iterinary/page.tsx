@@ -35,7 +35,7 @@ const Page = () => {
     const getIterinary = () => {
         const token = getCookie('token');
         api.get(`http://213.79.99.202:8000/timetable/${token}?day=0`)
-            .then((response) => {
+            .then((response:any) => {
                 setBreakfastIterinary(Object.values(response.data).filter(item => item.time_type == 0));
                 setLunchIterinary(Object.values(response.data).filter(item => item.time_type == 1));
                 setDinnerIterinary(Object.values(response.data).filter(item => item.time_type == 2));
