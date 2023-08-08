@@ -62,7 +62,7 @@ const Page = () => {
                         {breakfastIterinary.map((event:IterinaryItem) => (<span className={`flex items-center w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] mlarge:text-[1.25rem] text-right'>{event.title} {event.time_start} - {event.time_end}</p><p className='ml-[20px] text-[1.75rem] mlarge:text-[1.125rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
 
-                    <div className='absolute flex justify-between justify-self-end py-[20px] w-[15vw]'>
+                    <div className='absolute flex justify-between justify-self-end py-[20px] w-[15vw] mlarge:w-[40vw] mlarge:r-[5%]'>
                         <button className='px-[10px] h-[50px] border-2 border-[#62ffe3]
                                 text-[#62ffe3] bg-[#2eecc51a] shadow-[0_0_38px_rgba(46,236,197,0.1)] rounded-[10px] outline-none' onClick={() => {setDay(0); getIterinary()}}>День 0</button>
 
@@ -70,7 +70,7 @@ const Page = () => {
                                 text-[#62ffe3] bg-[#2eecc51a] shadow-[0_0_38px_rgba(46,236,197,0.1)] rounded-[10px] outline-none' onClick={() => {setDay(1); getIterinary()}}>День 1</button>
                     </div>
 
-                    <div className='justify-self-end mt-[-2px] py-[20px] pr-[20px] w-[80vw] h-auto border-y-2 border-r-2 border-[#9a9a9a]'>
+                    <div className='justify-self-end mt-[-2px] py-[20px] pr-[20px] mlarge:pr-[40px] w-[80vw] h-auto border-y-2 border-r-2 border-[#9a9a9a]'>
                         {lunchIterinary.map((event:IterinaryItem) => (<span className={`flex items-center ml-[10%] mlarge:ml-[12.5%] mmedium:ml-[5%] w-[100%] h-[60px] text-right ${event.is_active ? 'text-[#62ffe3]' : 'text-[#ffffff]'}`} key={event.id}><p className='text-[1.875rem] mlarge:text-[1.25rem] text-right'>{event.time_start} - {event.time_end}  {event.title}</p><p className='ml-[20px] text-[1.75rem] mlarge:text-[1.125rem] text-right'>{`(${event.description})`}</p></span>))}
                     </div>
 
