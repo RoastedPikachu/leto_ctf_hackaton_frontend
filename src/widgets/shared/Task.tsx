@@ -6,7 +6,7 @@ import axiosMixins from "@/mixins/axiosMixins";
 
 interface Tag {
     id: number,
-    title: string
+    tag: string
 }
 
 interface TaskProps {
@@ -14,10 +14,11 @@ interface TaskProps {
     title: string,
     description: string,
     tags: Tag[],
-    price: number
+    price: number,
+    link: string,
 }
 
-const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
+const Task:React.FC<TaskProps> = ({id, title, description, tags, price, link}) => {
     const {api, initAPI} = axiosMixins();
 
     const getCookie = (name:string) => {
@@ -30,7 +31,7 @@ const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
     const sendFlag = () => {
         console.log('');
         const token = getCookie('token');
-        api.post(`http://213.79.99.202:8000/user/task/${id}/submit/${token}`, {
+        api.post(`http://213.79.99.202:8000/task/${id}/submit/${token}`, {
             flag: prompt('Введите флаг')
         })
             .then((response) => {
@@ -43,7 +44,7 @@ const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
     }, []);
 
     return (
-        <div className='relative mlarge:mt-[30px] w-[28.5vw] mlarge:w-[100vw] h-[250px] border-2 border-[#ffffff66] rounded-xl'>
+        <div className='relative mlarge:mt-[30px] w-[28.5vw] mlarge:pb-[15px] mlarge:w-[100vw] h-[250px] border-2 border-[#ffffff66] rounded-xl'>
             <div className='flex justify-between items-center mt-[15px] ml-[10%] w-[80%] h-[50px]'>
                 <h2 className='text-[#ffffff] text-[1.125rem]'>{title}</h2>
 
@@ -51,19 +52,21 @@ const Task:React.FC<TaskProps> = ({id, title, description, tags, price}) => {
                     {tags.map((tag:Tag) => (
                         <div className='flex justify-center items-center ml-[10px] h-[25px] px-[10px] border-2 border-[#62ffe3]
                             bg-[#2eecc51a] shadow-[0_0_38px_rgba(46,236,197,0.1)] text-[#62ffe3] text-[1rem] rounded' key={tag.id}>
-                            <p>{tag.title}</p>
+                            <p>{tag.tag}</p>
                         </div>
                     ))}
                 </div>
             </div>
 
-            <div className='mt-[10px] ml-[10%] w-[80%] h-auto]'>
+            <div className='mt-[10px] mlarge:mt-[25px] ml-[10%] w-[80%] h-auto]'>
                 <p className='text-[#ffffff] text-[1rem]'>{description}</p>
 
                 <p className='mt-[10px] text-[#ffffff] text-[1rem]'>Стоимость таска: {price}</p>
 
+                <p className='mt-[10px] text-[#ffffff] text-[1rem]' dangerouslySetInnerHTML={{ __html: link}}></p>
+
                 <button
-                    className="mt-[20px] mmedium:px-[7.5px] w-[40%] h-[40px] border-2 border-[#62ffe3]
+                    className="mt-[10px] mmedium:px-[7.5px] w-[40%] h-[40px] border-2 border-[#62ffe3]
                     text-[#62ffe3] bg-[#2eecc51a] shadow-[0_0_38px_rgba(46,236,197,0.1)] rounded-[10px]"
                     onClick={() => sendFlag()}
                 >

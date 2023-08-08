@@ -74,7 +74,7 @@ const TheProfileInfo = () => {
                 <div className='mt-[10px]'>
                     <p className='text-[#ffffff] text-[1.125rem]'>Следующее мероприятие: </p>
 
-                    <p className='mt-[10px] text-[#ffffff] text-[1.125rem]'>{ `${nextEvent.startTime} ${nextEvent.endTime}:`} {nextEvent.title}</p>
+                    <p className='mt-[10px] text-[#ffffff] text-[1.125rem]'>{ `${nextEvent.startTime || 'Перерыв'} ${nextEvent.endTime || ''}`} {nextEvent.title || ''}</p>
                 </div>
             </div>
         </div>

@@ -38,7 +38,7 @@ const Page = () => {
     const getPersonalRatingArr = () => {
         const token = getCookie('token');
 
-        api.get(`http://213.79.99.202:8000/user/${token}`)
+        api.get(`http://213.79.99.202:8000/${token}`)
             .then((response:any) => {
                 console.log(response.data);
                 setInitialPersonalRatingArr(response.data);
